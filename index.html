@@ -62,7 +62,7 @@
         // Request to open weather map
         xhr.open(
           "GET",
-          "http://api.openweathermap.org/data/2.5/weather?id=4737316&units=imperial&appid=e5b292ae2f9dae5f29e11499c2d82ece"
+          "https://varvara-weather-forecast-bot.herokuapp.com/weather/api/v1.0/"
         );
         xhr.onload = () => {
           if (xhr.readyState === 4) {
