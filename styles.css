@@ -2,11 +2,11 @@
 
 :root {
   --bg: #282828;
-  --fg: #ffffff;
-  --secondaryFg: #b3b3b3;
+  --fg: #ebdbb2;
+  --secondaryFg: #bdae93;
   --containerBg: #1D2021;
   --searchBg: var(--containerBg);
-  --scrollbarColor: #3f3f3f;
+  --scrollbarColor: #fabd2f;
   --fontFamily: 'Roboto Mono', monospace;
 }
 
