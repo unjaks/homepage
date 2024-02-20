@@ -72,7 +72,7 @@
             if (xhr.status === 200) {
               let json = JSON.parse(xhr.responseText);
               document.getElementById("temp").innerHTML =
-                json.main.temp.toFixed(0) + " F";
+                json.main.temp.toFixed(0) + " C";
               document.getElementById("weather-description").innerHTML =
                 json.weather[0].description;
             } else {
