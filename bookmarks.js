@@ -12,7 +12,7 @@ const bookmarks = [
     title: "Media",
     links: [
       { name: "Youtube", url: "https://youtube.com" },
-      { name: "AllManga", url: "https://allmanga.to/" },
+      { name: "AllManga", url: "https://allmanga.to" },
     ],
   },
   {
