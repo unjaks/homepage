@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
 
 :root {
-  --bg: #282828;
-  --fg: #ebdbb2;
-  --secondaryFg: #bdae93;
-  --containerBg: #1D2021;
+  --bg: #010409;
+  --fg: #fff;
+  --secondaryFg: #737b84;
+  --containerBg: #161b22;
   --searchBg: var(--containerBg);
-  --scrollbarColor: #fabd2f;
+  --scrollbarColor: #737b84;
   --fontFamily: 'Roboto Mono', monospace;
 }
 
