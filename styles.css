@@ -2,8 +2,8 @@
 
 :root {
   --bg: #202020;
-  --fg: #2b2b2b;
-  --secondaryFg: #2b2b2b;
+  --fg: #fff;
+  --secondaryFg: #fff;
   --containerBg: #2b2b2b;
   --searchBg: var(--containerBg);
   --scrollbarColor: #737b84;
