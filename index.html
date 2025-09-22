@@ -95,13 +95,65 @@
   <cite><a href="https://en.wikipedia.org/wiki/Nier:_Automata">Wikipedia</a></cite>
 </blockquote>
 <h2>Code</h2>
-<pre>P R E F O R M A T T E D T E X T
-  ! " # $ % & ' ( ) * + , - . /
-  0 1 2 3 4 5 6 7 8 9 : ; < = > ?
-  @ A B C D E F G H I J K L M N O
-  P Q R S T U V W X Y Z [ \ ] ^ _
-  ` a b c d e f g h i j k l m n o
-  p q r s t u v w x y z { | } ~</pre>
+<pre>local SetupTools = function(player: Player)
+    local backpack: Backpack = player.Backpack
+    local guns: { Instance } = Weapons.Tools:GetChildren()
+
+    local weaponsByType: { [string]: { Tool } } = {
+        primary = {},
+        secondary = {},
+        melee = {},
+        special = {},
+        consumable = {},
+    }
+
+    local maxWeapons: { [string]: number } = {
+        primary = 3,
+        secondary = 1,
+        melee = 1,
+        special = 0,
+        consumable = 1,
+    }
+
+    for _, gun: Instance in guns do
+        if not gun:IsA("Tool") then
+            continue
+        end
+        local gunType: string? = gun:GetAttribute("type")
+        if gunType and weaponsByType[gunType] then
+            table.insert(weaponsByType[gunType], gun)
+        end
+    end
+
+    for weaponType: string, list: { Tool } in weaponsByType do
+        local count: number = 0
+        local given: { [Tool]: boolean } = {}
+        while count < maxWeapons[weaponType] do
+            local available: { Tool } = {}
+            for _, gun: Tool in list do
+                if not given[gun] then
+                    table.insert(available, gun)
+                end
+            end
+            if #available == 0 then
+                break
+            end
+            local index = math.random(1, #available)
+            local gun: Tool = available[index]
+            local clone: Tool = gun:Clone() :: Tool
+            for _, scripts: Instance in pairs(_prodClient["GunScripts"]:GetChildren()) do
+                if scripts:IsA("LocalScript") or scripts:IsA("Script") then
+                    local c: Instance = scripts:Clone()
+                    c.Parent = clone
+                    c.Enabled = true
+                end
+            end
+            clone.Parent = backpack
+            given[gun] = true
+            count += 1
+        end
+    end
+end</pre>
 <h2>Tables</h2>
 <table>
   <thead>
@@ -129,14 +181,9 @@
     </tr>
   </tbody>
 </table>
-<h2>Lists</h2>
+<h2>List of  </h2>
 <ol>
   <li>Drakengard</li>
   <li>Nier</li>
   <li>Nier Automata</li>
 </ol>
-<ul>
-  <li>Bare Fists</li>
-  <li>Virtuous Contract</li>
-  <li>Virtuous Treaty</li>
-</ul>
